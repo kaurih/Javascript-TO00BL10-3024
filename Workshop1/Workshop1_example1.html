@@ -1,0 +1,112 @@
+<html>
+    <script>
+        document.write("Hei vaan! ");
+        alert("Moi!");
+        console.log("Hello world ")
+
+        var x = prompt("How old is the man?"); 
+        var order = 'Beer'; 
+        if (x > 50) {
+        document.write("He's over 50! " );
+        } else if (x <= 50 && x> 30){
+        document.write("Middle aged man, who ordered some "+order+ ". ");
+        } else {
+        document.write("It seems you're bit underaged. ");
+        }
+
+        var arr = [];
+        for (var i=0; i<15; i++) {
+        arr.push(Math.floor(Math.random() * 100) +1);
+        } console.log(arr);
+        document.write(arr);
+
+
+        var a = parseFloat(prompt("Define a: "));
+        var b = parseFloat(prompt("Define b: "));
+
+        function addNumbers(a, b) {
+            let sum = a + b;
+
+            if (sum > 100) {
+                alert("The sum is greater than 100!");
+            }
+            return sum;
+        }
+
+        let result = addNumbers(a,b);
+
+        console.log(addNumbers(a, b));
+        document.write(result)
+
+                var person1 = {
+            firstName: "Matti",
+            lastName: "Meikäläinen",
+            age: 50,
+            eyeColor: "blue",
+            address: "Kotikatu",
+            telephone: "132478",
+            prntInfo: function() {
+                console.log("Name: " + this.firstName + " " + this.lastName);
+                console.log("Age: " + this.age);
+                console.log("Eye Color: " + this.eyeColor);
+                console.log("Address: " + this.address);
+                console.log("Telephone: " + this.telephone);
+            }
+        };
+
+        var person2 = {
+            firstName: "Jesse",
+            lastName: "Jokinen",
+            age: 20,
+            eyeColor: "blue",
+            address: "Siltatie",
+            telephone: "1376245",
+            prntInfo: function() {
+                console.log("Name: " + this.firstName + " " + this.lastName);
+                console.log("Age: " + this.age);
+                console.log("Eye Color: " + this.eyeColor);
+                console.log("Address: " + this.address);
+                console.log("Telephone: " + this.telephone);
+            }
+        };
+
+        var person3 = {
+            firstName: "Maija",
+            lastName: "Meikäläinen",
+            age: 52,
+            eyeColor: "brown",
+            address: "Kotikatu",
+            telephone: "90783571",
+            prntInfo: function() {
+                console.log("Name: " + this.firstName + " " + this.lastName);
+                console.log("Age: " + this.age);
+                console.log("Eye Color: " + this.eyeColor);
+                console.log("Address: " + this.address);
+                console.log("Telephone: " + this.telephone);
+            }
+        };
+
+        var person4 = {
+            firstName: "Mika",
+            lastName: "Meikäläinen",
+            age: 32,
+            eyeColor: "green",
+            address: "Kauppakatu",
+            telephone: "897642357",
+            prntInfo: function() {
+                console.log("Name: " + this.firstName + " " + this.lastName);
+                console.log("Age: " + this.age);
+                console.log("Eye Color: " + this.eyeColor);
+                console.log("Address: " + this.address);
+                console.log("Telephone: " + this.telephone);
+            }
+        };
+
+        var people = [person1, person2, person3, person4];
+
+        for (var i = 0; i < people.length; i++) {
+            console.log(people[i].firstName + " " + people[i].lastName);
+        }
+
+    </script>
+</html>
