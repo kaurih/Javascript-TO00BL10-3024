@@ -65,17 +65,17 @@ function loadRawData(){
             });
 }
 
-function loadAndParse() {
+function loadAndParse(){
     fetch("http://www.omdbapi.com/?s=star+wars&apikey=cbbc6750")
-        .then(response => {
-            if (!response.ok) {
+        .then(response =>{
+            if (!response.ok){
                 throw new Error("womp womp, FAILURE!!");
             }
             return response.json();
         })
-        .then(data => {
+        .then(data =>{
             // jos vastaus on kunnossa
-            if (data.Response === "True" && data.Search) {
+            if (data.Response === "True" && data.Search){
                 var rawDataDiv = document.getElementById("rawdata");
 
                 var table = document.createElement("table");
@@ -137,3 +137,52 @@ function loadAndParse() {
             document.getElementById("rawdata").textContent = "Virhetapaus: " + error.message;
         });
 }
+
+// EXCERCISE 3
+// Weather App!!
+
+async function getWeatherData(city = null){
+    if (!city) {
+        const citySelect = document.getElementById("city");
+        city = citySelect.value;
+    }
+
+    const apiKey = "53e55bc80c2dad9df3891c0534bcc129";
+    const owUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+    try {
+        const response = await fetch(owUrl);
+
+        if (!response.ok){
+            throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        const weatherDataDiv = document.getElementById("weatherdata");
+        const weatherInfo = 
+        `<h2>Weather in ${data.name}, ${data.sys.country}</h2>
+        <p><strong>Temperature:</strong> ${(data.main.temp - 273.15).toFixed(1)}°C</p>
+        <p><strong>Cloudiness:</strong> ${data.weather[0].description}</p>
+        <p><strong>Humidity:</strong> ${data.main.humidity}%</p>`;
+        
+        weatherDataDiv.innerHTML = weatherInfo;
+
+    } catch (error){
+        console.error("Failed to fetch weather data:", error);
+
+        const weatherDataDiv = document.getElementById("weatherdata");
+        weatherDataDiv.innerHTML = `<p class="error">Failed to fetch weather data: ${error.message}</p>`;
+    }
+}
+
+// search-event listener
+document.getElementById("search").addEventListener("click", () => {
+    const citySearchInput = document.getElementById("citysearch").value;
+    if (citySearchInput) {
+        getWeatherData(citySearchInput); // Fetch weather for the input city
+    }
+});
+
+// dfault-data
+getWeatherData();
+
