@@ -107,11 +107,17 @@ function changeCarImage() {
 // Excercise 4
 
 function changePosition() {
-    const carImage = document.getElementById('carImage'); // Select the element
-    carImage.style.left = '-200px'; // Move 200px to the left
-    carImage.style.top = '500px';  // Move 500px down
+
 }
 
+function fadeOut(){
+
+}
+
+function remove(){
+    const carImage = document.getElementById("carImage");
+    carImage.parentNode.removeChild(carImage);
+}
 
 
 
