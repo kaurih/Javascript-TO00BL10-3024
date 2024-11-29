@@ -21,8 +21,14 @@ function addLoremIpsum() {
     if (paragraphs.length >= 4){
         const fourthP = paragraphs[3];
         const appendedText = document.createElement("div")
+        
+        
+        const logo = document.createElement("img");
+        logo.src = "images/logo.PNG";
+        
         appendedText.textContent = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. "
         appendedText.style.fontStyle = "italic";
+        appendedText.appendChild(logo);
         fourthP.parentNode.insertBefore(appendedText, fourthP.nextSibling);
     }
 
