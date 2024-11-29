@@ -107,12 +107,19 @@ function changeCarImage() {
 // Excercise 4
 
 function changePosition() {
+    const image = document.getElementById("carImage")
+    image.style.position = "relative";
+    image.style.left = "200px";
+    image.style.top = "500px";
+
 
 }
+
+
 
 function doMove(){
 
-}
+};
 
 // jouduin muokaaamaan html-osiota, sain kuvan vain välkkymään kun interval oli määritelty siellä.
 function fadeOut(){
@@ -122,7 +129,7 @@ function fadeOut(){
         if (opacity > 0) {
             opacity -= 0.05;
             carImage.style.opacity = opacity;
-            
+
         }
     });
 }
