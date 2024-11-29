@@ -11,14 +11,20 @@ function modifyStyle() {
     document.getElementById("secondHeading").style.color = "white";
 }
 
-// tämä jäi valitettavasti kesken
+
 
 function addLoremIpsum() {
     const body = document.body
-    const div = document.createElement("div")
-    div.innerHTML = "&quot;Lorem ipsum&quot;"
+    body.style.background="lightgrey";
 
-    body.append(div)
+    const paragraphs = document.getElementsByTagName("p");
+    if (paragraphs.length >= 4){
+        const fourthP = paragraphs[3];
+        const appendedText = document.createElement("div")
+        appendedText.textContent = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. "
+        appendedText.style.fontStyle = "italic";
+        fourthP.parentNode.insertBefore(appendedText, fourthP.nextSibling);
+    }
 
 }
 
@@ -94,12 +100,15 @@ function changeCarImage() {
 
 // Excercise 4
 
-
-function changePosition(){
-    const image = document.getElementById("carImage");
-    image.style.left = "200px";
-    image.style.down = "500px";
+function changePosition() {
+    const carImage = document.getElementById('carImage'); // Select the element
+    carImage.style.left = '-200px'; // Move 200px to the left
+    carImage.style.top = '500px';  // Move 500px down
 }
+
+
+
+
 
 // Excercise 5
 
