@@ -94,3 +94,45 @@ function changeCarImage() {
 
 // Excercise 4
 
+
+function changePosition(){
+    const image = document.getElementById("carImage");
+    image.style.left = "200px";
+    image.style.down = "500px";
+}
+
+// Excercise 5
+
+function createTable(){
+    const headers = ["Name", "Position", "Salary"];
+    const data = [
+        ["Nixon", "ARchitect", "3200"],
+        ["Winters", "Accountant", "28000"],
+        ["Cox", "Junior Dev", "9000"],
+        ["Kelly", "Senior Dev", "25000"],
+        ["Satou", "Accountant", "9999999"]
+    ];
+
+    const table = document.createElement("table");
+    const headerRow = document.createElement("tr");
+    headers.forEach(headerText => {
+        const th = document.createElement("th");
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+
+
+    table.appendChild(headerRow);
+
+    data.forEach(rowData => {
+        const row = document.createElement("tr");
+        rowData.forEach(cellData => {
+            const td = document.createElement("td");
+            td.textContent = cellData;
+            row.appendChild(td);
+        });
+        table.appendChild(row);
+    });
+
+    document.getElementById("table-container").appendChild(table);
+}
