@@ -110,9 +110,24 @@ function changePosition() {
 
 }
 
-function fadeOut(){
+function doMove(){
 
 }
+
+// jouduin muokaaamaan html-osiota, sain kuvan vain välkkymään kun interval oli määritelty siellä.
+function fadeOut(){
+    let opacity = 1;
+    const carImage = document.getElementById("carImage");
+    const interval = setInterval(function() {
+        if (opacity > 0) {
+            opacity -= 0.05;
+            carImage.style.opacity = opacity;
+            
+        }
+    });
+}
+
+
 
 function remove(){
     const carImage = document.getElementById("carImage");
